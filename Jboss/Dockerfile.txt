@@ -1,0 +1,9 @@
+FROM registry.access.redhat.com/jboss-eap-7-tech-preview/eap70
+
+COPY app.war $JBOSS_HOME/standalone/deployments/
+
+USER root
+
+RUN chown jboss:jboss $JBOSS_HOME/standalone/deployments/app.war
+
+USER jboss
